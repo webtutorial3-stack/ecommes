@@ -1,0 +1,175 @@
+  /*html,*/
+  /*      body {*/
+  /*          margin: 0;*/
+  /*          padding: 0;*/
+  /*          width: 1000px;*/
+  /*          margin: 0 auto;*/
+  /*      }*/
+        .flex {
+            display: flex;
+        }
+
+        .spaceBetween {
+            justify-content: space-between;
+        }
+
+        /* for select bropdown */
+
+        .texts,
+        .options,
+        .inputBadgeCont,
+        .removeSearch {
+            cursor: pointer;
+        }
+
+        .options {
+            display: block;
+        }
+
+        .options.selected {
+            background-color: darkgray;
+            color: crimson;
+        }
+
+        .dropdownsSelect span {
+            border-bottom: solid 1px #e0e0e0;
+        }
+
+        .dropdownsSelect span:hover {
+            background-color: 	#90EE90;
+        }
+
+        .dropdownsSelect span:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdownsSelect.selectOpen {
+            height: 294px;
+            overflow: scroll;
+            /* border: 1px solid #e0d9d9; */
+        }
+        .selectOpen::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        .dropdownsSelect {
+            height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            background-color: #f5f5f5;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+            position: absolute;
+            width: 100%;
+            top: 52px;
+            z-index: 99;
+        }
+
+        .itemCenter {
+            align-items: center;
+        }
+
+        .input-default {
+            padding-left: 14px;
+        }
+
+        .aeroIcon {
+            transition: 0.4s;
+        }
+
+        .aeroIcon img {
+            width: 18px;
+            height: 10px;
+        }
+
+        .aeroIcon.rotate {
+            transform: rotate(-180deg);
+        }
+
+        .inputBadgeCont,
+        .options {
+            padding: 13px 14px;
+        }
+
+        .inputBadgeCont {
+            border: solid 1px #e0e0e0;
+        }
+
+        .selectCont {
+            margin: 20px 0px;
+            position: relative;
+            width: 315px;
+            background-color: #f5f5f5;
+        }
+
+        .selectPeace {
+            margin: 0px 0px;
+            position: relative;
+            width: 315px;
+            background-color: #f5f5f5;
+        }
+
+        .main_cont select {
+            width: 100%;
+            height: 52px;
+            background-color: unset;
+            outline: none;
+        }
+
+
+
+
+
+.radio{
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+    vertical-align: middle;
+    color: #18bf3e;
+    position: relative;
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+.radio + .radio{
+    margin-left: 20px;
+}
+
+.radio input[type="radio"]{
+    color: #18bf3e;
+    background: #00aeef;
+
+}
+
+.radio span{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border:3px solid #00aeef;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    background: #f5f5f5;
+}
+
+.radio span:after{
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #00aeef;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 50%;
+    transition: 300ms ease-in-out 0s;
+}
+
+.radio input[type="radio"]:checked ~ span:after{
+    transform: translate(-50%,-50%) scale(1);
+    color: #18bf3e;
+
+}
+

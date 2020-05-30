@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}   Order Completed {% endblock %}
+{% block description %} {{ product.description}}  {% endblock %}
+{% block keywords %}   {{ product.keywords}}  {% endblock %}
+
+{% block head %}
+
+<script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{% load mptt_tags %}
+
+<!-- Hero Section Begin -->
+<!-- Hero Section Begin -->
+{% block header %}
+   {% include "header.html" %}
+{% endblock %}
+<!-- Hero Section End -->
+
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-details-hero set-bg" data-setbg="{% static 'img/banner-green.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog__details__hero__text">
+                        <h4><strong>Frequently Asked Questions   </strong></h4>
+                        <ul>
+                            <a>Information</a>
+                            <a>January 14, 2019</a>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Hero End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 order-md-1 order-2">
+                    <div class="blog__sidebar">
+
+                        <div class="blog__sidebar__item">
+                            <h4>Categories</h4>
+                                      <ul>
+            {% recursetree category %}
+
+                        <li><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
+{% endrecursetree %}
+                    </ul>
+                        </div>
+                        <div class="blog__sidebar__item">
+                            <h4>Recent News</h4>
+                            <div class="blog__sidebar__recent">
+
+                            {% for rs in products_top2 %}
+                            <a href="/order/addtoshopcart/{{ rs.id}}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="blog__sidebar__item">
+                            <h4>Search By</h4>
+                            <div class="blog__sidebar__item__tags">
+                                    {% recursetree category %}
+
+                        <a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a>
+{% endrecursetree %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 order-md-1 order-1">
+                    <div class="blog__details__text">
+                        <img src="img/blog/details/details-pic.jpg" alt="">
+
+
+                        <div id="accordion">
+                            {% for rs in faq %}
+                            <h3>{{ rs.question }}</h3>
+                            <div>
+                                <p>
+                                    {{ rs.answer | safe }}.
+                                </p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+
+
+ {% endblock %}

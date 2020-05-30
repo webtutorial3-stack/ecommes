@@ -1,0 +1,10 @@
+
+
+         {% for rs in colors %}
+     <label class="radio">
+        <input type="radio" name="variantid" id="variantid" {% if variant.id == rs.id %} checked {% endif %}  value="{{ rs.id }}" onchange="this.form.submit();">
+        {{ rs.size.color }}
+          </label>
+        {% endfor %}
+
+
