@@ -18,6 +18,7 @@
                         <i class="fa fa-bars"></i>
                         <span>All departments</span>
                     </div>
+
                     <ul>
                         {% load mptt_tags %}
 
@@ -83,16 +84,15 @@
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
-
-                  {% recursetree category %}
+    {% for rs in products %}
 
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg=" {{ node.image }}">
-                        <h5><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></h5>
+                    <div class="categories__item set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}">
+                        <h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h5>
                     </div>
                 </div>
 
-               {% endrecursetree %}
+              {% endfor %}
 
             </div>
         </div>

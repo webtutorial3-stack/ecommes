@@ -532,3 +532,12 @@ return render(request, 'order_form.html', context)
 
 
 
+     {% recursetree category %}
+
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg=" {{ node.image }}">
+                        <h5><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></h5>
+                    </div>
+                </div>
+
+               {% endrecursetree %}

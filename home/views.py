@@ -14,6 +14,7 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     products_slider = Product.objects.all().order_by('?')[:1]
+    products = Product.objects.all().order_by('?')
     products_slider1 = Product.objects.all().order_by('?')[:3]
     products_slider2 = Product.objects.all().order_by('?')[:3]
     products_latest = Product.objects.all().order_by('?')[:3]
@@ -25,6 +26,7 @@ def index(request):
     page = "home"
     context = {'setting': setting,
                'page': page,
+               'products': products,
                'products_slider': products_slider,
                'products_slider1': products_slider1,
                'products_slider2': products_slider2,
