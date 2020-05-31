@@ -280,6 +280,7 @@ function AutoCompleteSelectHandler(event, ui)
         e.preventDefault();
         $.ajax({
             type:'POST',
+            url:'{% url "ajaxcolor" %}',
             data:{
                 productid:$('#productid').val(),
                 size:$('#size').val(),
@@ -296,7 +297,24 @@ function AutoCompleteSelectHandler(event, ui)
     });
 
 
+    $(document).on('submit','#addcartform',function (e) {
+        e.preventDefault();
 
+        $.ajax({
+            type:'POST',
+            url:'/addtoshopcart/',
+            data:{
+                productid:$('#productid').val(),
+                quantity:$('#quantity').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success:function(data){
+                alert("Product Added to Cart")
+
+            }
+        });
+
+    });
 
 
 

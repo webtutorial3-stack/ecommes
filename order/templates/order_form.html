@@ -67,15 +67,15 @@
 <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/product-banner.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Order Page</h2>
+                        <h4>Order Page</h4>
                         <div class="breadcrumb__option">
-                            <a href="/home/">Home</a>
-                            <span>Order Page</span>
+                            <b href="/home/">Home</b>
+                            <b>Order Page</b>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="checkout__form">
-                <h4>Billing Details</h4>
+                <h4>Shipping Details</h4>
                 <form action="" method="post">
                        {% csrf_token %}
                     <div class="row">
