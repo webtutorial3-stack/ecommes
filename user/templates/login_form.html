@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% block title %} Contact Us -   {{ setting.title}}  {% endblock %}
+{% block keywords %}   {{ setting.keywords}}  {% endblock %}
+{% block description %}   {{ setting.description}}  {% endblock %}
+
+{% load static %}
+{% block content %}
+    <!-- Hero Section Begin -->
+    {% block header %}   {% include 'header.html' %}  {% endblock %}
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/product-banner.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h4>Contact Us </h4>
+                    <div class="breadcrumb__option">
+                        <b href="/home/">Welcome</b> /
+                        <b>Login Form</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+
+
+
+ <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>Welcome / Login</h2>
+                    </div>
+                </div>
+            </div>
+
+               {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+            <form action="" method="post">
+                  {% csrf_token %}
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" class="input" name="username" placeholder="User name">
+
+                        <input type="password" class="input" name="password" placeholder="Password">
+                    </div>
+
+
+
+                    </div>
+           <button type="submit" value="login" class="site-btn">LOGIN</button>
+            </form>
+        </div>
+    </div>
+    <!-- Contact Form End -->
+
+
+
+
+
+{% endblock %}

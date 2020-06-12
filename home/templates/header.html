@@ -11,15 +11,11 @@
                         <i class="fa fa-bars"></i>
                         <span>All departments</span>
                     </div>
-                    <ul>
                         {% load mptt_tags %}
-
-                    </ul>
-
-                    <ul>
+                    <ul class="option" id="options-nav" style="height: 435px; overflow-y: auto; ">
                         {% recursetree category %}
 
-                        <li><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
+                        <li ><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
                         {% endrecursetree %}
                     </ul>
 

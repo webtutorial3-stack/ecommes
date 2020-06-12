@@ -50,9 +50,6 @@ class Category(MPTTModel):
             return ' / '.join(full_path[::-1])
 
 
-
-
-
 class Product(models.Model):
     STATUS = (
         ('True', 'True'),

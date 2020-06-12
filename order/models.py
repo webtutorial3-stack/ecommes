@@ -10,24 +10,23 @@ from product.models import Product, Variants
 class ShopCart(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
-    variant = models.ForeignKey(Variants, on_delete=models.SET_NULL,blank=True, null=True)
+    variant = models.ForeignKey(Variants, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.IntegerField()
 
     def __str__(self):
         return self.product.title
 
-
     @property
     def price(self):
-        return(self.product.price)
+        return (self.product.price)
 
     @property
     def amount(self):
-        return(self.quantity * self.product.price)
+        return (self.quantity * self.product.price)
 
     @property
     def varamount(self):
-       return(self.quantity * self.variant.price)
+        return (self.quantity * self.variant.price)
 
 
 class ShopCartForm(ModelForm):

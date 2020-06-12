@@ -5,13 +5,13 @@ from order.models import ShopCart, Order, OrderProduct
 
 
 class ShopCartAdmin(admin.ModelAdmin):
-    list_display = ['product', 'user', 'quantity', 'price', 'amount']
+    list_display = ['product', 'user', 'variant', 'quantity', 'price', 'amount']
     list_filter = ['user']
 
 
 class OrderProductLine(admin.TabularInline):
     model = OrderProduct
-    readonly_fields = ('user', 'product', 'price', 'quantity', 'amount')
+    readonly_fields = ('user', 'product', 'variant', 'price', 'quantity', 'amount')
     can_delete = False
     extra = 0
 

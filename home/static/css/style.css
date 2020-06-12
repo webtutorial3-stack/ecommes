@@ -107,6 +107,11 @@ ol {
 	margin: 0;
 }
 
+::-webkit-scrollbar
+{
+    width: 50px
+}
+
 /*---------------------
   Helper CSS
 -----------------------*/

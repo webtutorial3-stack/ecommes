@@ -175,15 +175,28 @@
                             <div class="checkout__order">
                                 <h4>Your Order</h4>
                                 <div class="checkout__order__products">Products <span>Total</span></div>
-                                   {% for rs in schopcart %}
+                                   {% for rs in shopcart %}
                                 <ul>
-                                    <li href="/product/{{ rs.product.id }}/{{ rs.product.slug }}">{{ rs.product }} <span>${{ rs.product.price}}</span></li>
+                                    <li href="/product/{{ rs.product.id }}/{{ rs.product.slug }}">{{ rs.product }} <span>   {% if rs.product.variant == 'None' %}
+                                ${{ rs.product.price }}
+                                {% else %}
+                                {{ rs.variant.price }}
+                                {% endif %}
+</span></li>
                                     <li>Quantity <span>{{ rs.quantity}}</span></li>
 
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span>${{ rs.amount }}</span></div>
+                                <div class="checkout__order__subtotal">Subtotal <span>{% if rs.product.variant == 'None' %}
+                                ${{ rs.amount }}
+                                {% else %}
+                                {{ rs.varamount }}
+                                {% endif %}</span></div>
                                  {% endfor %}
-                                <div class="checkout__order__total">Total <span>${{ total }}</span></div>
+                                <div class="checkout__order__total">Total <span>{% if rs.product.variant == 'None' %}
+                                ${{ rs.amount }}
+                                {% else %}
+                                {{ rs.varamount }}
+                                {% endif %}</span></div>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?

@@ -12,25 +12,21 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-3">
-                <div class="hero__categories">
+            <div class="col-lg-3" >
+                <div class="hero__categories" >
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
                         <span>All departments</span>
                     </div>
-
-                    <ul>
                         {% load mptt_tags %}
 
-                    </ul>
 
-                    <ul>
+                    <ul class="option" id="options-nav" style="height: 435px; overflow: auto;  ">
                         {% recursetree category %}
 
-                        <li><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
+                        <li ><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
                         {% endrecursetree %}
                     </ul>
-
                 </div>
             </div>
 

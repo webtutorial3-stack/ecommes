@@ -62,8 +62,11 @@
                                 <a href="/product/{{ rs.product.id }}/{{ rs.slug }}">{{ rs.product }} {{ rs.variant.size }}</a>
                             </td>
                             <td class="shoping__cart__price">
-
+                                {% if rs.product.variant == 'None' %}
                                 ${{ rs.product.price }}
+                                {% else %}
+                                {{ rs.variant.price }}
+                                {% endif %}
 
                             </td>
                             <td class="shoping__cart__quantity">
@@ -74,8 +77,11 @@
                                 </div>
                             </td>
                             <td class="shoping__cart__total">
-
+                                {% if rs.product.variant == 'None' %}
                                 ${{ rs.amount }}
+                                {% else %}
+                                {{ rs.varamount }}
+                                {% endif %}
 
                             </td>
                             <td class="shoping__cart__item__close"><a href="/order/deletefromcart/{{ rs.id }}" onclick="return confirm('Delete!! Are you sure?')">
