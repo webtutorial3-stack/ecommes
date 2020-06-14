@@ -61,15 +61,13 @@
                     <div class="sidebar">
                         <div class="sidebar__item">
                             <h4>Department</h4>
-                             <ul>
-                        {% load mptt_tags %}
+                           {% load mptt_tags %}
 
-                    </ul>
-                    <ul>
+
+                    <ul class="option" id="options-nav" style="height: 435px; overflow: auto;  ">
                         {% recursetree category %}
 
-                        <li><a href="/category/{{ node.id }}/{{ node.title }}"> {{ node.title }}</a></li>
-
+                        <li ><a href="/category/{{node.id }}/{{ node.slug }}"> {{ node.title }}</a></li>
                         {% endrecursetree %}
                     </ul>
                         </div>
@@ -268,11 +266,21 @@
                          {% endfor %}
 
                     </div>
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                       <div class="product__pagination pagination">
+                        {% if products.has_previous %}
+            <a href="?page=1">&laquo; </a>
+            <a href="?page={{ products.previous_page_number }}">back</a>
+        {% endif %}
+
+        <b class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}  -
+        </b>
+
+        {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}">next</a>
+            <a href="?page={{ products.paginator.num_pages }}">last </a>
+        {% endif %}
+
                     </div>
                 </div>
             </div>

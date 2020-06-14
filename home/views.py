@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from home.forms import SearchForm
 from home.models import Setting, ContactForm, ContactMessage
 from product.models import Category, Product, Images, Variants
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def index(request):
@@ -87,8 +88,9 @@ def category_products(request, id, slug):
     products_top = Product.objects.all().order_by('?')[:3]
     products_top1 = Product.objects.all().order_by('?')[:4]
     products_review = Product.objects.all().order_by('?')[:3]
-    products_top2 = Product.objects.all().order_by('?')[:3]
+    products_top2 = Product.objects.all().order_by('?')
     products_review2 = Product.objects.all().order_by('?')[:3]
+
     context = {'products': products,
                'setting': setting,
                'products_slider': products_slider,
@@ -109,7 +111,7 @@ def category_products(request, id, slug):
 def category(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    products = Product.objects.all()
+    products_list = Product.objects.all()
     #products = Product.objects.filter(category_id=id)
     products_slider1 = Product.objects.all().order_by('?')[:3]
     products_slider = Product.objects.all().order_by('?')[:1]
@@ -121,6 +123,10 @@ def category(request):
     products_review = Product.objects.all().order_by('?')[:3]
     products_top2 = Product.objects.all().order_by('?')[:3]
     products_review2 = Product.objects.all().order_by('?')[:3]
+    paginator = Paginator(products_list, 9)
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
+
     context = {'products': products,
                'setting': setting,
                'products_slider': products_slider,
