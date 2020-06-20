@@ -142,7 +142,7 @@ def orderproduct(request):
 
             ShopCart.objects.filter(user_id=current_user.id).delete()
             request.session['cart_items'] = 0
-            messages.success(request, "Your Order has been completed. Thank you")
+            messages.success(request, "Your Order has been completed. Thank static")
             return render(request, 'order_completed.html', {'ordercode': ordercode, 'category': category})
         else:
             messages.warning(request, form.errors)

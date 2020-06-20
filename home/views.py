@@ -65,7 +65,7 @@ def contactus(request):
             data.message = form.cleaned_data['message']
             data.ip = request.META.get('REMOTE_ADDR')
             data.save()
-            messages.success(request, "Your message has been sent. We will Get back to you as soon as possible")
+            messages.success(request, "Your message has been sent. We will Get back to static as soon as possible")
             return HttpResponseRedirect('/contact')
 
     setting = Setting.objects.get(pk=1)
