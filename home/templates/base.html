@@ -52,25 +52,25 @@
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
-<!--&lt;!&ndash;            <img src="{% static 'img/language.png' %}" alt="">&ndash;&gt;-->
-<!--            {% if user.id is not None %}-->
-<!--                            <div href="/user">My Account</div>-->
-<!--                            <span class="arrow_carrot-down"></span>-->
-<!--                          <ul class="header__menu__dropdown">-->
-<!--<li><a href="/user/favourites" class="fa fa-heart">My Wish list</a></li>-->
-<!--                <li><a href="/user/orders" class="fa fa-exchange">My Orders</a></li>-->
-<!--                <li><a href="/user/comments" class="fa fa-check">My Comments</a></li>-->
-<!--                <li> <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a></li>-->
-<!--                      </ul>-->
-<!--                        </div>-->
-<!--                          <strong class=""text-uppercase>{{ user.first_name}} </strong>||-->
-<!--                        <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a>-->
-<!--                        <div class="header__top__right__auth">-->
-<!--                            {% else  %}-->
-<!--                            <a href="/login/"><i class="fa fa-user"></i> Login</a>/-->
-<!--                            <a href="/signup/"><i class="fa fa-user"></i> Join</a>-->
-<!--                            {% endif %}-->
-<!--                        </div>-->
+<!--            <img src="{% static 'img/language.png' %}" alt="">-->
+            {% if user.id is not None %}
+                            <div href="/user">My Account</div>
+                            <span class="arrow_carrot-down"></span>
+                          <ul class="header__menu__dropdown">
+<li><a href="/user/favourites" class="fa fa-heart">My Wish list</a></li>
+                <li><a href="/user/orders" class="fa fa-exchange">My Orders</a></li>
+                <li><a href="/user/comments" class="fa fa-check">My Comments</a></li>
+                <li> <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a></li>
+                      </ul>
+                        </div>
+                          <strong class=""text-uppercase>{{ user.first_name}} </strong>||
+                        <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a>
+                        <div class="header__top__right__auth">
+                            {% else  %}
+                            <a href="/login/"><i class="fa fa-user"></i> Login</a>/
+                            <a href="/signup/"><i class="fa fa-user"></i> Join</a>
+                            {% endif %}
+                        </div>
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
@@ -127,25 +127,25 @@
         <a href="{{ setting.instagram|safe }}"><i class="fa fa-instagram"></i></a>
                         </div>
                         <div class="header__top__right__language">
-<!--&lt;!&ndash;                            <img src="{% static 'img/language.png' %}" alt="">&ndash;&gt;-->
-<!--                            {% if user.id is not None %}-->
-<!--                            <div href="/user">My Account</div>-->
-<!--                            <span class="arrow_carrot-down"></span>-->
-<!--                          <ul class="header__menu__dropdown">-->
-<!--<li><a href="/user/favourites" class="fa fa-heart">My Wish list</a></li>-->
-<!--                <li><a href="/user/orders" class="fa fa-exchange">My Orders</a></li>-->
-<!--                <li><a href="/user/comments" class="fa fa-check">My Comments</a></li>-->
-<!--                <li> <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a></li>-->
-<!--                      </ul>-->
-<!--                        </div>-->
-<!--                          <strong class=""text-uppercase>{{ user.first_name}} </strong>||-->
-<!--                        <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a>-->
-<!--                        <div class="header__top__right__auth">-->
-<!--                            {% else  %}-->
-<!--                            <a href="/login/"><i class="fa fa-user"></i> Login</a>/-->
-<!--                            <a href="/signup/"><i class="fa fa-user"></i> Join</a>-->
-<!--                            {% endif %}-->
-<!--                        </div>-->
+<!--                            <img src="{% static 'img/language.png' %}" alt="">-->
+                            {% if user.id is not None %}
+                            <div href="/user">My Account</div>
+                            <span class="arrow_carrot-down"></span>
+                          <ul class="header__menu__dropdown">
+<li><a href="/user/favourites" class="fa fa-heart">My Wish list</a></li>
+                <li><a href="/user/orders" class="fa fa-exchange">My Orders</a></li>
+                <li><a href="/user/comments" class="fa fa-check">My Comments</a></li>
+                <li> <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a></li>
+                      </ul>
+                        </div>
+                          <strong class=""text-uppercase>{{ user.first_name}} </strong>||
+                        <a href="/logout/"><i class="fa fa-unlock-alt"></i> logout</a>
+                        <div class="header__top__right__auth">
+                            {% else  %}
+                            <a href="/login/"><i class="fa fa-user"></i> Login</a>/
+                            <a href="/signup/"><i class="fa fa-user"></i> Join</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-                        <a href="./index.html"><img src="{% static 'img/logos/main.png' %}" alt=""></a>
+<!--                        <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>-->
                     </div>
                     <ul>
                         <li>Address: {{ setting.address}}</li>
