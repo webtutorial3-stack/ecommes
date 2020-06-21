@@ -169,42 +169,30 @@
 
                         <div class="latest-prdouct__slider__item">
                             {% for rs in products_top2 %}
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id}}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
                         <div class="latest-prdouct__slider__item">
 
                             {% for rs in products_review2 %}
-                             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id}}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
@@ -217,41 +205,29 @@
                     <div class="latest-product__slider owl-carousel">
                         <div class="latest-prdouct__slider__item">
                             {% for rs in products_slider1 %}
-                             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
                         <div class="latest-prdouct__slider__item">
                             {% for rs in products_slider2 %}
-                             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
@@ -264,41 +240,29 @@
                     <div class="latest-product__slider owl-carousel">
                         <div class="latest-prdouct__slider__item">
                             {% for rs in products_top %}
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
                         <div class="latest-prdouct__slider__item">
                             {% for rs in products_review%}
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" style="width: 100px">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="/order/addtoshopcart/{{ rs.id }}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6>
-                        <h5>${{ rs.price }}</h5>
-                    </div>
-                </div>
-            </div>
+                            <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
+                                    <span>${{ rs.price }}</span>
+                                </div>
+                            </a>
                             {% endfor %}
 
                         </div>
