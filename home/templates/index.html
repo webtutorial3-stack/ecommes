@@ -221,7 +221,7 @@
                             {% for rs in products_slider2 %}
                             <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}" style="height: 300px; width: 500px">
                                 </div>
                                 <div class="latest-product__item__text">
                                     <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
@@ -242,7 +242,7 @@
                             {% for rs in products_top %}
                             <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}" style="height: 300px; width: 500px">
                                 </div>
                                 <div class="latest-product__item__text">
                                     <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
@@ -256,7 +256,7 @@
                             {% for rs in products_review%}
                             <a href="/order/addtoshopcart/{{ rs.id }}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}" style="height: 100px; width: 100px">
                                 </div>
                                 <div class="latest-product__item__text">
                                     <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
