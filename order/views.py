@@ -6,7 +6,6 @@ from django.utils.crypto import get_random_string
 from home.models import Setting
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
-from user.models import UserProfile
 
 
 def index(request):
@@ -149,7 +148,7 @@ def orderproduct(request):
             return HttpResponseRedirect("/order/orderproduct")
 
     form = OrderForm()
-    profile = UserProfile.objects.get(user_id=current_user.id)
+    # profile = UserProfile.objects.get(user_id=current_user.id)
     setting = Setting.objects.get(pk=1)
     context = {
         'shopcart': shopcart,

@@ -46,9 +46,9 @@ urlpatterns = [
     # path('ajaxpost/', views.ajaxpost, name='ajaxpost'),
     path('ajaxcolor/', views.ajaxcolor, name='ajaxcolor'),
     path('ajaxcolor/', views.ajaxcolor, name='ajaxcolor'),
-    path('login/', UserViews.login_form, name='login_form'),
-    path('logout/', UserViews.logout_func, name='logout_func'),
-    path('signup/', UserViews.signup_form, name='signup_form'),
+    # path('login/', UserViews.login_form, name='login_form'),
+    # path('logout/', UserViews.logout_func, name='logout_func'),
+    # path('signup/', UserViews.signup_form, name='signup_form'),
 
 
 ]
