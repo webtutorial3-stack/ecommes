@@ -83,8 +83,8 @@
     {% for rs in products %}
 
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}">
-                        <h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h5>
+                    <div class="categories__item set-bg" data-setbg="{{rs.image.url}}" href="/product/{{ rs.id }}/{{ rs.slug }}">
+                        <h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h5><h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.price }}</a></h5>
                     </div>
                 </div>
 

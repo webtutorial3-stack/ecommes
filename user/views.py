@@ -8,7 +8,7 @@ from django.shortcuts import render
 from home.models import Setting, FAQ
 from product.models import Category, Product
 from user.forms import SignUpForm
-# from user.models import UserProfile
+from user.models import UserProfile
 
 
 @login_required(login_url='/login')
@@ -47,7 +47,7 @@ def login_form(request):
             # current_user = request.user
             # userprofile = UserProfile.objects.get(user_id=current_user.id)
             # request.session['userimage'] = userprofile.image.url
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/order/orderproduct')
 
         else:
             messages.warning(request, "Login Error !! Username or Password is incorrect")

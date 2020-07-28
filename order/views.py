@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.crypto import get_random_string
@@ -12,6 +13,7 @@ def index(request):
     return HttpResponse("order Page")
 
 
+@login_required(login_url='/login')
 def addtoshopcart(request,id):
     url = request.META.get('HTTP_REFERER')
     current_user = request.user
@@ -57,6 +59,7 @@ def addtoshopcart(request,id):
         return HttpResponseRedirect(url)
 
 
+@login_required(login_url='/login')
 def shopcart(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
@@ -84,7 +87,7 @@ def deletefromcart(request,id):
     messages.success(request, "your item deleted! for Cart")
     return HttpResponseRedirect("/shopcart")
 
-
+@login_required(login_url='/login')
 def orderproduct(request):
     category = Category.objects.all()
     current_user = request.user
@@ -111,7 +114,7 @@ def orderproduct(request):
             data.total = total
             data.ip = request.META.get('REMOTE_ADDR')
             ordercode = get_random_string(5).upper()
-            data.code = ordercode 
+            data.code = ordercode
             data.save()
 
             for rs in shopcart:
@@ -155,7 +158,7 @@ def orderproduct(request):
         'setting': setting,
         'total': total,
         'form': form,
-        'profile': profile,
+#        'profile': profile,
         'category': category,
     }
     return render(request, 'order_form.html', context)

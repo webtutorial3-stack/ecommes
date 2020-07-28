@@ -123,6 +123,7 @@ def category(request):
     products_review = Product.objects.all().order_by('?')[:3]
     products_top2 = Product.objects.all().order_by('?')[:3]
     products_review2 = Product.objects.all().order_by('?')[:3]
+    products_review3 = Product.objects.all().order_by('?')
     paginator = Paginator(products_list, 9)
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
@@ -138,16 +139,11 @@ def category(request):
                'products_top1': products_top1,
                'products_top2': products_top2,
                'products_review2': products_review2,
+               'products_review3': products_review3,
                'products_review': products_review,
                'category': category}
 
     return render(request, 'category.html', context)
-
-
-
-
-
-
 
 
 def search(request):
