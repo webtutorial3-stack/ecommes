@@ -47,7 +47,7 @@
                         </div>
                         <div class="hero__search__phone__text">
                             <h5>{{ setting.phone}}</h5>
-                            <span>support 24/7 time</span>
+                            <span>call an place your order now!!</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
 
                 {% for rs in products_slider %}
-                <div class="hero__item set-bg" data-setbg="{{ rs.image.url }}" >
+                <div class="hero__item set-bg" data-setbg="{{ rs.image.url }}" alt="{{ rs.title }}">
                     <div class="hero__text">
                         <span>FRUIT FRESH</span>
                         <h2>{{ rs.title }} <br />{{ rs.price }}100% Organic</h2>
@@ -83,7 +83,7 @@
     {% for rs in products %}
 
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{rs.image.url}}" href="/product/{{ rs.id }}/{{ rs.slug }}">
+                    <div class="categories__item set-bg" data-setbg="{{rs.image.url}}" href="/product/{{ rs.id }}/{{ rs.slug }}" alt="{{ rs.title }}">
                         <h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h5><h5><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.price }}</a></h5>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             {% for rs in products_picked %}
             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}">
+                    <div class="featured__item__pic set-bg" data-setbg="{{rs.image.url}}" href="/order/addtoshopcart/{{ rs.id}}" alt="{{ rs.title }}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -171,7 +171,7 @@
                             {% for rs in products_top2 %}
                             <a href="/order/addtoshopcart/{{ rs.id}}" class="latest-product__item">
                                 <div class="latest-product__item__pic">
-                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{rs.image.url}}" alt="/product/{{ rs.id }}/{{ rs.slug }}" >
                                 </div>
                                 <div class="latest-product__item__text">
                                     <h6 href="/product/{{ rs.id }}/{{ rs.slug }}" >{{ rs.title }}</h6>
