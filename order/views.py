@@ -14,7 +14,7 @@ from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
 
 
-def home(request):
+def index(request):
     return HttpResponse("order Page")
 
 @login_required(login_url='/login')
