@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="contact-form">
+                        <div class="leave-comment">
+                             <p>Dear {{ user.first_name }} {{ user.last_name}}.</p>
+                              <h4>Order Completed, you order is being processed we will send you our payment methods through email or call. thank you for trusting</h4>
+                                                        <tr>
+                                <td>
+
+                                   <h4>Product :<strong> {{ detail }} </strong></h4>
+                                   <h4>Price :<strong>$ {{ detail.price }} </strong></h4>
+                                   <h4>Quantity :<strong> {{ detail.quantity }} </strong></h4>
+                                   <h4>Total Amount :<strong>$ {{ detail.amount }} </strong></h4>
+                                </td>
+                                   <h4>Order Code<strong>{{ ordercode }}</strong></h4>
+                            </tr>
+
+                            <h4>Your order is completed!</h4>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+</body>
+</html>

@@ -1,17 +1,21 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.crypto import get_random_string
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from home.models import Setting
+from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
 
 
-def index(request):
+def home(request):
     return HttpResponse("order Page")
-
 
 @login_required(login_url='/login')
 def addtoshopcart(request,id):
@@ -58,13 +62,13 @@ def addtoshopcart(request,id):
         messages.success(request, " Product Added To ShopCart")
         return HttpResponseRedirect(url)
 
-
 @login_required(login_url='/login')
 def shopcart(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     shopcart = ShopCart.objects.filter(user_id=current_user.id)
+    home = ShopCart.objects.filter(user_id=current_user.id)
     total = 0
     for rs in shopcart:
         if rs.product.variant == 'None':
@@ -74,6 +78,7 @@ def shopcart(request):
 
     context = {
         'shopcart': shopcart,
+        'home': home,
         'setting': setting,
         'total': total,
         'category': category
@@ -87,8 +92,10 @@ def deletefromcart(request,id):
     messages.success(request, "your item deleted! for Cart")
     return HttpResponseRedirect("/shopcart")
 
+
 @login_required(login_url='/login')
 def orderproduct(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     shopcart = ShopCart.objects.filter(user_id=current_user.id)
@@ -109,6 +116,8 @@ def orderproduct(request):
             data.last_name = form.cleaned_data['last_name']
             data.address = form.cleaned_data['address']
             data.city = form.cleaned_data['city']
+            data.email = form.cleaned_data['email']
+            data.country = form.cleaned_data['country']
             data.phone = form.cleaned_data['phone']
             data.user_id = current_user.id
             data.total = total
@@ -144,8 +153,14 @@ def orderproduct(request):
 
             ShopCart.objects.filter(user_id=current_user.id).delete()
             request.session['cart_items'] = 0
-            messages.success(request, "Your Order has been completed. Thank static")
-            return render(request, 'order_completed.html', {'ordercode': ordercode, 'category': category})
+            messages.success(request, "Your Order has been completed. Thank you")
+            template = render_to_string('order_confirmation.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount, 'category': category})
+            send_mail(
+                'Order Confirmation',
+                'Your order has been recieved!',
+                settings.EMAIL_HOST_USER,
+                ['atlanticpharmaceuticals1@gmail.com', data.email], fail_silently=False,html_message=template)
+            return render(request, 'order_completed.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount, 'category': category})
         else:
             messages.warning(request, form.errors)
             return HttpResponseRedirect("/order/orderproduct")
