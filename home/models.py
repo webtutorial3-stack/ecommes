@@ -1,4 +1,7 @@
 from django.db import models
+
+# Create your models here.
+from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.forms import ModelForm, TextInput, Textarea
@@ -76,7 +79,6 @@ class ContactForm(ModelForm):
 
                 }
 
-
 class FAQ(models.Model):
     STATUS = (
         ('True', 'True'),
@@ -91,3 +93,40 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
+    
+    
+class PAY(models.Model):
+    STATUS = (
+        ('True', 'True'),
+        ('False', 'False'),
+    )
+    ordernumber = models.IntegerField()
+    question = models.CharField(max_length=200)
+    answer = RichTextUploadingField()
+    status = models.CharField(max_length=10, choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.question
+
+
+class PRODINFO(models.Model):
+    STATUS = (
+        ('True', 'True'),
+        ('False', 'False'),
+    )
+    ordernumber = models.IntegerField()
+    question = models.CharField(max_length=200)
+    answer = RichTextUploadingField()
+    status = models.CharField(max_length=10, choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.question
+
+
+
+
+

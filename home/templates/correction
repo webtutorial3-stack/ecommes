@@ -1,0 +1,12 @@
+                                      
+
+            ShopCart.objects.filter(user_id=current_user.id).delete()
+            request.session['cart_items'] = 0
+            messages.success(request, "Your Order has been completed. Thank you")
+            template = render_to_string('order_confirmation.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount,'detail.first_name': detail.first_name,'detail.last_name': detail.last_name,'detail.address': detail.address,'detail.city': detail.city,'detail.email': detail.email,'detail.country': detail.country,'detail.phone': detail.phone, 'category': category})
+            send_mail(
+                'Order Confirmation',
+                'Your order has been recieved!',
+                settings.EMAIL_HOST_USER,
+                ['atlanticpharmaceuticals1@gmail.com', data.email], fail_silently=False,html_message=template)
+            return render(request, 'order_completed.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount,'detail.first_name': detail.first_name,'detail.last_name': detail.last_name,'detail.address': detail.address,'detail.city': detail.city,'detail.email': detail.email,'detail.country': detail.country,'detail.phone': detail.phone, 'category': category})

@@ -6,9 +6,13 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 
 from home.forms import SearchForm
-from home.models import Setting, ContactForm, ContactMessage
+from home.models import Setting, ContactForm, ContactMessage, FAQ, PAY, PRODINFO
 from product.models import Category, Product, Images, Variants
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+
+def order_confirmation(request):
+    return render(request, 'email_confirmation.html')
 
 
 def index(request):
@@ -235,3 +239,45 @@ def ajaxcolor(request):
         data = {'rendered_table': render_to_string('color_list.html', context=context)}
         return JsonResponse(data)
     return JsonResponse(data)
+
+
+def faq(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    faq = FAQ.objects.filter(status="True").order_by("ordernumber")
+    products_top2 = Product.objects.all().order_by('?')[:4]
+    context = {'faq': faq,
+               'setting': setting,
+               'category': category,
+               'products_top2': products_top2,
+               }
+
+    return render(request, 'faq.html', context)
+
+
+def pay(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    pay = PAY.objects.filter(status="True").order_by("ordernumber")
+    products_top2 = Product.objects.all().order_by('?')[:4]
+    context = {'pay': pay,
+               'setting': setting,
+               'category': category,
+               'products_top2': products_top2,
+               }
+
+    return render(request, 'pay.html', context)
+
+
+def prodinfo(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    prodinfo = PRODINFO.objects.filter(status="True").order_by("ordernumber")
+    products_top2 = Product.objects.all().order_by('?')[:4]
+    context = {'prodinfo': prodinfo,
+               'setting': setting,
+               'category': category,
+               'products_top2': products_top2,
+               }
+
+    return render(request, 'howwill.html', context)

@@ -99,6 +99,7 @@ def orderproduct(request):
     category = Category.objects.all()
     current_user = request.user
     shopcart = ShopCart.objects.filter(user_id=current_user.id)
+    order = Order.objects.filter(user_id=current_user.id)
     total = 0
     for rs in shopcart:
         if rs.product.variant == 'None':
@@ -152,15 +153,16 @@ def orderproduct(request):
                     variant.save()
 
             ShopCart.objects.filter(user_id=current_user.id).delete()
+            Order.objects.filter(user_id=current_user.id).delete()
             request.session['cart_items'] = 0
             messages.success(request, "Your Order has been completed. Thank you")
-            template = render_to_string('order_confirmation.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount, 'category': category})
+            template = render_to_string('order_confirmation.html', {'ordercode': ordercode, 'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount, 'category': category})
             send_mail(
                 'Order Confirmation',
                 'Your order has been recieved!',
                 settings.EMAIL_HOST_USER,
                 ['atlanticpharmaceuticals1@gmail.com', data.email], fail_silently=False,html_message=template)
-            return render(request, 'order_completed.html', {'ordercode': ordercode,'detail': detail,'detail.quantity': detail.quantity,'detail.price': detail.price,'detail.amount': detail.amount, 'category': category})
+            return render(request, 'order_completed.html', {'ordercode': ordercode, 'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount, 'category': category})
         else:
             messages.warning(request, form.errors)
             return HttpResponseRedirect("/order/orderproduct")

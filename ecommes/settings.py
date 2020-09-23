@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'ckeditor',
     'mptt',
+    'django.contrib.sitemaps',
+    'robots',
 
 ]
 

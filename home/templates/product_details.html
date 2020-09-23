@@ -1,8 +1,10 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}  {{ setting.title}}  {% endblock %}
-{% block keywords %}   {{ setting.keywords}}  {% endblock %}
+{% block title %}   {{ product.title }} results {% endblock %}
+{% block description %} {{ product.description}}  {% endblock %}
+{% block keywords %}   {{ product.keywords}}  {% endblock %}
+
 
 
 {% block content %}

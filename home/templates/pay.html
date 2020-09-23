@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}   FAQS {% endblock %}
+{% block title %}   How To Order {% endblock %}
 {% block description %} {{ product.description}}  {% endblock %}
 {% block keywords %}   {{ product.keywords}}  {% endblock %}
 
@@ -34,12 +34,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="blog__details__hero__text">
-                        <h4><strong>Frequently Asked Questions   </strong></h4>
-                        <ul>
-                            <a>Information</a>
-                            <a>January 14, 2019</a>
-
-                        </ul>
+                        <h4><strong>How To Order   </strong></h4>
+              
                     </div>
                 </div>
             </div>
@@ -98,7 +94,7 @@
 
 
                         <div id="accordion">
-                            {% for rs in faq %}
+                            {% for rs in pay %}
                             <h3>{{ rs.question }}</h3>
                             <div>
                                 <p>

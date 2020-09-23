@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from home.models import Setting, ContactMessage, FAQ
+from home.models import Setting, ContactMessage, FAQ, PAY, PRODINFO
+
 
 
 class SettingAdmin(admin.ModelAdmin):
@@ -17,8 +18,18 @@ class ContactMessageAdmin(admin.ModelAdmin):
 class FAQAdmin(admin.ModelAdmin):
     list_display = ['question', 'answer', 'ordernumber', 'status']
     list_filter = ['status']
+    
+class PAYAdmin(admin.ModelAdmin):
+    list_display = ['question', 'answer', 'ordernumber', 'status']
+    list_filter = ['status']
+
+class PRODINFOAdmin(admin.ModelAdmin):
+    list_display = ['question', 'answer', 'ordernumber', 'status']
+    list_filter = ['status']    
 
 
 admin.site.register(Setting, SettingAdmin)
 admin.site.register(ContactMessage, ContactMessageAdmin)
 admin.site.register(FAQ, FAQAdmin)
+admin.site.register(PAY, PAYAdmin)
+admin.site.register(PRODINFO, PRODINFOAdmin)

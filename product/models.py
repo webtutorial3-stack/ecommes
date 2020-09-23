@@ -25,7 +25,7 @@ class Category(MPTTModel):
     parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     keywords = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=10000)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
     slug = models.SlugField(null=False, unique=True)
@@ -34,6 +34,9 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('category_products', args=[self.id, self.slug])
 
     class MPTTMeta:
         order_insertion_by = ['title']
@@ -88,7 +91,7 @@ class Product(models.Model):
     image_tag.short_description = 'Image'
 
     def get_absolute_url(self):
-        return reverse('category_detail', kwargs={'slug': self.slug})
+        return reverse('product_detail', args=[self.id, self.slug])
 
 
 class Images(models.Model):
@@ -103,6 +106,7 @@ class Images(models.Model):
 # class CommentForm(ModelForm):
 #     class Meta:
 #         model = CommentFormFields = ['subject', 'comment', 'rate']
+
 
 
 class Color(models.Model):
