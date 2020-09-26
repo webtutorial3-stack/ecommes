@@ -143,6 +143,7 @@ ROBOTS_USE_SCHEME_IN_HOST = True
 
 ROBOTS_SITEMAP_URLS = [
     'https://www.atlanticpharmacy.shop/sitemap.xml',
+    'https://atlanticpharmacy.shop/sitemap.xml',
 ]
 
 # Static files (CSS, JavaScript, Images)
