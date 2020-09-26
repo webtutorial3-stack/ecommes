@@ -87,11 +87,23 @@ WSGI_APPLICATION = 'ecommes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'ecom',
+       'USER': 'postgres',
+       'PASSWORD': '12345',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
 }
 
 
@@ -127,6 +139,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+ROBOTS_USE_SCHEME_IN_HOST = True
+
+ROBOTS_SITEMAP_URLS = [
+    'https://www.atlanticpharmacy.shop/sitemap.xml',
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
