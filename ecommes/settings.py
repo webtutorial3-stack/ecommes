@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'mptt',
     'django.contrib.sitemaps',
     'robots',
-
 ]
 
 MIDDLEWARE = [
@@ -105,6 +104,19 @@ DATABASES = {
        'PORT': '5432',
    }
 }
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'dbname',
+#        'USER': 'postgres',
+#        'PASSWORD': 'postgres',
+#        'HOST': '',
+#        'PORT': '',
+#    }
+#}
+
 
 
 # Password validation
