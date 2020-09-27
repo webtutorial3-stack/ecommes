@@ -46,9 +46,8 @@
         <ul>
             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="/shopcart/"><i class="fa fa-shopping-bag"></i>
-                  {% load myapptags %}
-                                     {% shopcartcount user.id as count %}
-                                    <span>{{ count }}</span>
+                
+                                    <span></span>
                 </a></li>
         </ul>
         <div class="header__cart__price">item: <span>${{ total }}</span></div>
@@ -183,9 +182,8 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                         <li><a href="/shopcart/"><i class="fa fa-shopping-bag"></i>
-                            {% load myapptags %}
-                                     {% shopcartcount user.id as count %}
-                                    <span>{{ count }}</span></a></li>
+
+                                    <span></span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>${{ total }}</span></div>
                 </div>

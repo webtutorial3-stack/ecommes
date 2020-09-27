@@ -98,8 +98,8 @@ def orderproduct(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
+    orders = Order.objects.filter(user_id=current_user.id)
     shopcart = ShopCart.objects.filter(user_id=current_user.id)
-    order = Order.objects.filter(user_id=current_user.id)
     total = 0
     for rs in shopcart:
         if rs.product.variant == 'None':
@@ -126,7 +126,8 @@ def orderproduct(request):
             ordercode = get_random_string(5).upper()
             data.code = ordercode
             data.save()
-
+          
+                
             for rs in shopcart:
                 detail = OrderProduct()
                 detail.order_id = data.id
@@ -151,18 +152,23 @@ def orderproduct(request):
                     variant = Variants.objects.get(id=rs.product_id)
                     variant.quantity -= rs.quantity
                     variant.save()
-
+            for rs in orders:
+                detail.address = rs.address
+                detail.city = rs.city
+                detail.email = rs.email
+                detail.country = rs.country
+                detail.phone = rs.phone
             ShopCart.objects.filter(user_id=current_user.id).delete()
             Order.objects.filter(user_id=current_user.id).delete()
             request.session['cart_items'] = 0
-            messages.success(request, "Your Order has been completed. Thank you")
-            template = render_to_string('order_confirmation.html', {'ordercode': ordercode, 'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount, 'category': category})
+            messages.success(request, "Your Order has been completed. Thank static")
+            template = render_to_string('order_confirmation.html', {'ordercode': ordercode,'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount,'detail.address': detail.address, 'detail.city': detail.city, 'detail.phone': detail.phone, 'detail.email': detail.email, 'detail.country': detail.country, 'category': category})
             send_mail(
                 'Order Confirmation',
                 'Your order has been recieved!',
                 settings.EMAIL_HOST_USER,
                 ['atlanticpharmaceuticals1@gmail.com', data.email], fail_silently=False,html_message=template)
-            return render(request, 'order_completed.html', {'ordercode': ordercode, 'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount, 'category': category})
+            return render(request, 'order_completed.html', {'ordercode': ordercode, 'detail': detail, 'detail.quantity': detail.quantity, 'detail.price': detail.price, 'detail.amount': detail.amount,'detail.address': detail.address, 'detail.city': detail.city, 'detail.phone': detail.phone, 'detail.email': detail.email, 'detail.country': detail.country, 'category': category})
         else:
             messages.warning(request, form.errors)
             return HttpResponseRedirect("/order/orderproduct")
@@ -172,6 +178,7 @@ def orderproduct(request):
     setting = Setting.objects.get(pk=1)
     context = {
         'shopcart': shopcart,
+        'orders': orders,
         'setting': setting,
         'total': total,
         'form': form,

@@ -47,7 +47,7 @@ def login_form(request):
             # current_user = request.user
             # userprofile = UserProfile.objects.get(user_id=current_user.id)
             # request.session['userimage'] = userprofile.image.url
-            return HttpResponseRedirect('/order/orderproduct')
+            return HttpResponseRedirect('/home/')
 
         else:
             messages.warning(request, "Login Error !! Username or Password is incorrect")
