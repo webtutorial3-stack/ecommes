@@ -46,9 +46,12 @@ INSTALLED_APPS = [
     'mptt',
     'django.contrib.sitemaps',
     'robots',
+    'gtm',
 ]
 
-SITE_ID=1
+SITE_ID = 1
+
+GOOGLE_TAG_ID = GTM-NPK23L4
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
