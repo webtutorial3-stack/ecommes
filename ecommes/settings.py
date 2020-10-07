@@ -51,7 +51,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-GOOGLE_TAG_ID = NPK23L4
+GTM-NPK23L4
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
