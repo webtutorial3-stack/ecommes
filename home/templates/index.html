@@ -6,7 +6,8 @@
 
 
 {% block content %}
-Important Things You Should Know about Xanax. Xanax is a powerful and ultimately effective anxiety treatment, which belongs to a group of benzodiazepines ...
+<!--Important Things You Should Know about Xanax. Xanax is a powerful and ultimately effective anxiety treatment, which belongs to a group of benzodiazepines ...-->
+<!--
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -23,7 +24,12 @@ Important Things You Should Know about Xanax. Xanax is a powerful and ultimately
       "openinghours": "Mo,Tu,We,Th,Fr 24/24"
     }
     </script>
-
+  // And then you append it to the head
+  var script = document.createElement('script');
+  script.type = "application/ld+json";
+  script.innerHTML = JSON.stringify(data);
+  document.head.appendChild(script);
+-->
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="container">
