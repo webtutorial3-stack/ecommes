@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}   How To Order {% endblock %}
-{% block description %} {{ product.description}}  {% endblock %}
+{% block description %} We understand that most people require discretion. So, we use generic prepaid Xpress envelopes to package items. We then vacuum seal and bubble wrap the contents for maximum discretion, protection and to seal in the freshness. There is nothing written on the outside of the envelope that would advertise that you are taking medical marijuana so no nosy neighbors would know it is anything other then a regular package  {% endblock %}
 {% block keywords %}   {{ product.keywords}}  {% endblock %}
 
 {% block head %}
@@ -17,6 +17,23 @@
 
 
 {% block content %}
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles California",
+        "addressRegion": "CA",
+        "streetAddress": "2393  Eden Drive "
+      },
+      "description": "We understand that most people require discretion. So, we use generic prepaid Xpress envelopes to package items. We then vacuum seal and bubble wrap the contents for maximum discretion, protection and to seal in the freshness. There is nothing written on the outside of the envelope that would advertise that you are taking medical marijuana so no nosy neighbors would know it is anything other then a regular package ."
+      "name": "How will I recieve My Products",
+      "telephone": "+1-831-200-4219"
+      "openinghours": "Mo,Tu,We,Th,Fr 24/24"
+    }
+    </script>
 
 
 {% load mptt_tags %}

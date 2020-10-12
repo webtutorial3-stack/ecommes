@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}   FAQS {% endblock %}
-{% block description %} {{ product.description}}  {% endblock %}
+{% block title %}   F.A.Q {% endblock %}
+{% block description %} While there are a number of scammers on the internet who claim to sell legal Drugs, we can assure you we aren’t one of them. We have spent years building a solid reputation amongst medical patients and strongly support the use of our Drugs. We understand the needs of medical patients that may have trouble purchasing their medicine from a dispensary for any number of reasons and believe they shouldn’t be forced to have to buy illegally on the streets. We have made the decision to offer full access to our site to medical patients so they may have safe access to their medicine at any time.  {% endblock %}
 {% block keywords %}   {{ product.keywords}}  {% endblock %}
 
 {% block head %}
@@ -17,7 +17,22 @@
 
 
 {% block content %}
-
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles California",
+        "addressRegion": "CA",
+        "streetAddress": "2393  Eden Drive "
+      },
+      "description": "While there are a number of scammers on the internet who claim to sell legal Drugs, we can assure you we aren’t one of them. We have spent years building a solid reputation amongst medical patients and strongly support the use of our Drugs. We understand the needs of medical patients that may have trouble purchasing their medicine from a dispensary for any number of reasons and believe they shouldn’t be forced to have to buy illegally on the streets. We have made the decision to offer full access to our site to medical patients so they may have safe access to their medicine at any time."
+      "name": "F.A.Q",
+      "telephone": "+1-831-200-4219"
+      "openinghours": "Mo,Tu,We,Th,Fr 24/24"
+    }
+    </script>
 
 {% load mptt_tags %}
 

@@ -6,7 +6,37 @@
 
 
 {% block content %}
-
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles California",
+        "addressRegion": "CA",
+        "streetAddress": "2393  Eden Drive "
+      },
+      "description": " Buy Benzos online xanax, escitalopram, Klonopin, Valium, Ativan, Librium,triazolam (Halcion) and more..."
+      "name": "Benzodiazepines ",
+      "telephone": "+1-831-200-4219"
+      "openinghours": "Mo,Tu,We,Th,Fr 24/24"
+      "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.4",
+    "reviewCount": "89"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2020-11-05",
+    "availability": "http://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "{{ product.title }}"
+    }
+  }
+    }
+    </script>
              {% for rs in shopcart %}
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">

@@ -6,6 +6,22 @@
 
 {% load static %}
 {% block content %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles California",
+        "addressRegion": "CA",
+        "streetAddress": "2393  Eden Drive "
+      },
+      "description": "Feel free to call or send us a message for more info or any questions.",
+      "name": "Contact Us",
+      "telephone": "+1-831-200-4219"
+      "openinghours": "Mo,Tu,We,Th,Fr 24/24"
+    }
+    </script>
     <!-- Hero Section Begin -->
     {% block header %}   {% include 'header.html' %}  {% endblock %}
     <!-- Hero Section End -->
