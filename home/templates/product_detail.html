@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}   {{ product.title }} results {% endblock %}
-{% block description %} Buy Benzos online xanax, escitalopram, Klonopin, Valium, Ativan, Librium,triazolam (Halcion) and more...  {% endblock %}
+{% block description %} {{ product.description }}  {% endblock %}
 {% block keywords %}   {{ product.keywords}}  {% endblock %}
 
 
@@ -27,7 +27,7 @@
         "streetAddress": "2393  Eden Drive "
       },
       "image": "https://www.atlanticpharmacy.shop/{% static 'img/{{ product.image.url }}' %}",
-      "description": " Buy Benzos online xanax, escitalopram, Klonopin, Valium, Ativan, Librium,triazolam (Halcion) and more..."
+      "description": " {{ product.description }}"
       "name": "Benzodiazepines ",
       "telephone": "+1-831-200-4219"
       "openinghours": "Mo,Tu,We,Th,Fr 24/24"
@@ -40,7 +40,7 @@
     "@type": "Offer",
     "priceCurrency": "USD",
     "price": "${{ product.price }}",
-    "priceValidUntil": "2020-11-05",
+    "priceValidUntil": "2020-11-11",
     "availability": "http://schema.org/InStock",
     "seller": {
       "@type": "Organization",
