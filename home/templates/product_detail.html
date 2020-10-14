@@ -16,6 +16,26 @@
 {% endblock %}
 <!-- Hero Section End -->
 {% block content %}
+
+<script type='application/ld+json'> 
+{
+  "@context": "https://www.schema.org",
+  "@type": "product",
+  "brand": "Acme",
+  "logo": "https://atlanticpharmacy.shop/media/images/main.png",
+  "name": "{{ product.title }}",
+  "category": "{{ product.category.title }}",
+  "image": "{% static 'img/product-banner.jpg' %}",
+  "description": "{{ product.description }}",
+  "aggregateRating": {
+    "@type": "aggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "21"
+  }
+}
+ </script>
+
+<!--
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -23,7 +43,7 @@
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Los Angeles California",
-        "addressRegion": "CA"
+        "addressRegion": "CA",
         "streetAddress": "2393  Eden Drive "
       },
       "image": "https://www.atlanticpharmacy.shop/{% static 'img/{{ product.image.url }}' %}",
@@ -48,6 +68,7 @@
   }
     }
     </script>
+-->
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/product-banner.jpg' %}">
     <div class="container">
